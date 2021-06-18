@@ -1,0 +1,17 @@
+<b>COLOR</b>
+
+<div class="mb-3">
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filtertext" placeholder="renk ismi giriniz">
+</div>
+
+<ul class="list-group">
+  <li
+     class="list-group-item" *ngFor="let color of colors | filterpipeColor:filterText"
+  >
+    {{ color.colorName }}
+  </li>
+</ul>
+
+
+
+

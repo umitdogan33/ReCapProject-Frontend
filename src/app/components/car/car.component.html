@@ -1,0 +1,129 @@
+<!-- 
+<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>CarName</th>
+      <th>Brand</th>
+      <th>Color</th>
+      <th>DailyPrice</th>
+    </tr>
+  </thead>
+
+
+  <tr *ngFor="let CarDetail of CarDetails">
+    <td>{{ CarDetail.id}}</td>
+    <td>{{ CarDetail.carName}}</td>
+    <td>{{ CarDetail.brandName}}</td>
+    <td>{{ CarDetail.colorName }}</td>
+    <td>{{ CarDetail.dailyPrice }}</td>
+  </tr>
+</table> -->
+<div class="row">
+  <div class="col-md-3">
+    
+    <button routerLink="/cars" class="list-group-item active">
+    Tüm Araçlar
+    </button>
+  
+  <br>
+  <br>
+  
+    
+    <app-brand></app-brand>
+    <br>
+    <br>
+    <app-color></app-color>
+  </div>
+  <div class="col-md-9">
+
+
+<div class="mb-3">
+  <label for="filtertext" class="form-label">araba ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filtertext"
+    placeholder="araba ismi giriniz"
+  />
+</div>
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} aradınız
+</div>
+<br /><br />
+<div class="row">
+  <div class="col-md-4">
+    <select class="form-control mb-3"[(ngModel)]="brandId"style="margin-left: 10px; width: 90%">
+      <option selected [value]=0>All Brands</option >
+      <option
+        *ngFor="let brand of brands"
+        [value]="brand.brandId"
+        [selected]="getSelectedBrandId(brand.brandId)"
+      >
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    
+    <select
+    class="form-control mb-3"
+    [(ngModel)]="colorId"
+    placeholder="All Colors"
+    style="margin-left: 10px; width: 90%"
+  >
+    <option selected [value]=0>All Colors</option>
+    <option
+      *ngFor="let color of colors"
+      [value]="color.colorId"
+      [selected]="getSelectedColorId(color.colorId)"
+    >
+      {{ color.colorName }}
+    </option>
+  </select>
+
+
+
+ 
+
+  </div>
+  <div class="col-md-4">
+
+    <button
+    class="btn"
+    (click)="getFilteredCars(brandId, colorId)"
+    style="width: 100%; background-color: #5cb370; color: white"
+  >
+    Filter
+  </button>
+    
+  </div>
+</div>
+
+
+
+
+<div
+  *ngFor="let car of CarDetails | filterpipeCar: filterText"
+  class="card"
+  style="width: 18rem; float: left"
+>
+  <img [src]="car.images.length!==0 ? imageBasePath+car.images[0]:imageBasePath+defaultImg" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ car.carName }}</h5>
+    <p class="card-text">DailyPrice :{{ car.dailyPrice }}</p>
+    <p class="card-text">BrandName :{{ car.brandName }}</p>
+    <p class="card-text">ColorName :{{ car.colorName }}</p>
+
+    <a  class="btn btn-warning">kirala</a>
+    <br><br>
+    <a routerLink="/cars/details/{{car.id}}" class="btn btn-danger">Detay</a>
+  </div>
+</div>
+</div>

@@ -1,0 +1,17 @@
+<b>BRAND</b>
+
+<div class="mb-3">
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filtertext" placeholder="marka ismi giriniz">
+</div>
+
+<ul class="list-group">
+  <li
+    class="list-group-item"  *ngFor="let category of brands|filterpipebrand:filterText"
+    
+  >
+    {{ category.brandName }}
+  </li>
+</ul>
+
+
+

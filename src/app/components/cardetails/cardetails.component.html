@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+          <div *ngIf="cars[0]?.images?.length===0" class="crousel-item active detailImage" [class.active]="true">
+            <img [src]="imageBasePath + defaultImage" class="d-block mx-auto detailImage" alt="{{carDto.description}} Image"/>
+          </div>
+
+
+              <div *ngFor="let car of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }" class="carousel-item " data-bs-interval="10000">
+              <img [src]="carDto.images.length !== 0 ? imageBasePath+ car: imageBasePath + defaultImage" width="90" height="325" class="d-block w-100" alt="{{carDto.description}} Image">  
+              </div>
+            </div>
+            
+        </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div>
+        <ul *ngIf="carDto" class="list-group list-group-flush">
+          <li class="list-group-item">araba Adı: {{carDto.carName}}</li>
+          <li class="list-group-item">Marka: {{carDto.brandName |uppercase}}</li>
+          <li class="list-group-item">Renk: {{carDto.colorName}}</li>
+          <li class="list-group-item">Günlük fiyat: {{carDto.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>        </ul>
+        <section > 
+          <button *ngIf="carDto" routerLink = "/rental/{{carDto.carId}}" id="rentalButton"type="button"
+          class="btn btn-outline-success">Kirala</button>
+          <!-- <app-car-update *ngIf="carDto"  [carForUpdate]="carDto"></app-car-update> -->
+          <button *ngIf="carDto" routerLink = "/cars/update/{{carDto.carId}}" type="button"
+          class="btn btn-outline-success">Güncelle</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
