@@ -30,7 +30,7 @@
       </div>
       <div class="dropdown text-end" *ngIf="checkToEmail()==true">
         <a
-         
+
           class="d-block link-dark text-decoration-none dropdown-toggle"
           id="dropdownUser1"
           data-bs-toggle="dropdown"
@@ -38,11 +38,11 @@
            type="button"
            style="color: white;"
         >
-        
-        {{this.user.firstName}} {{this.user.lastName}}
-        
+
+        {{user.firstName}} {{user.lastName}}
+
         </a>
-        
+
         <div class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><a routerLink="/profil" class="dropdown-item">Profil düzenle</a></li>
           <li><a routerLink="cars/add" class="dropdown-item">Araba ekle</a></li>
