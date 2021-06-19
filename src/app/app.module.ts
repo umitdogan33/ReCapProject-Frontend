@@ -1,13 +1,14 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import{BrowserAnimationsModule} from "@angular/platform-browser/animations"
-import{ToastrModule} from "ngx-toastr";
-import{FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { GecoDialogModule } from 'angular-dynamic-dialog';  
-import {DynamicDialogModule} from 'primeng/dynamicdialog'; 
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
+import {ToastrModule} from "ngx-toastr";
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+// import { GecoDialogModule } from 'angular-dynamic-dialog';  
+// import {DynamicDialogModule} from 'primeng/dynamicdialog'; 
+// import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,20 +67,20 @@ import { PaymentComponent } from './components/payment/payment.component';
   imports: [   
     BrowserModule,
     AppRoutingModule,
-    ConfirmDialogModule,
-    ConfirmationService,
+    // ConfirmDialogModule,
+    // ConfirmationService,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DynamicDialogModule,
+    // DynamicDialogModule,
     BrowserAnimationsModule,
-    GecoDialogModule,
+    // GecoDialogModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true} ],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true} ,ConfirmationService,DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

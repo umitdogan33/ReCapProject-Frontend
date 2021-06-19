@@ -26,4 +26,9 @@ export class CustomerCreditCardService {
       let newPath = this.apiUrl + "customercreditcard/getbycustomerid?customerId="+customerId
       return this.httpClient.get<ListResponseModel<CustomerCreditCard>>(newPath)
     }
+
+    pay(customerCreditCard:CustomerCreditCard):Observable<ResponseModel>{
+     
+      return this.httpClient.post<ResponseModel>(this.apiUrl+"customercreditcard/pay",customerCreditCard);
+    }
 }
