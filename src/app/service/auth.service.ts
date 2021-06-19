@@ -10,11 +10,16 @@ import { TokenModel } from '../models/tokenModel';
   providedIn: 'root'
 })
 export class AuthService {
+  currentUserId: number;
   NewPath= environment.BaseUrl+"Auth/"
   constructor(private httpClient:HttpClient) { }
 
   login(user:LoginModel){
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.NewPath+"login",user);
+  }
+
+  getCurrentUserId():number {
+    return this.currentUserId
   }
 
 Register(user:RegisterModel){

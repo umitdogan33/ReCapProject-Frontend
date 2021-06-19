@@ -5,6 +5,10 @@ import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import{BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import{ToastrModule} from "ngx-toastr";
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { GecoDialogModule } from 'angular-dynamic-dialog';  
+import {DynamicDialogModule} from 'primeng/dynamicdialog'; 
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,11 +30,11 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { ProfilUpdateComponent } from './components/profil-update/profil-update.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @NgModule({
@@ -53,18 +57,23 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    PaymentComponent,
     ProfilUpdateComponent,
     HomeComponent,
     BrandListComponent,
     AdminLayoutComponent,
+    PaymentComponent
   ],
   imports: [   
     BrowserModule,
     AppRoutingModule,
+    ConfirmDialogModule,
+    ConfirmationService,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    DynamicDialogModule,
     BrowserAnimationsModule,
+    GecoDialogModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
