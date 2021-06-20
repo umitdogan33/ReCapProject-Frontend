@@ -5,9 +5,11 @@ import { Brand } from 'src/app/models/Brand/brand';
 import { Car } from 'src/app/models/Cars/car';
 import { CarDetail } from 'src/app/models/Cars/carDetail';
 import { Color } from 'src/app/models/Color/color';
+import { AuthService } from 'src/app/service/auth.service';
 import { BrandService } from 'src/app/service/Brand/brand.service';
 import { CarService } from 'src/app/service/Car/car.service';
 import { ColorService } from 'src/app/service/Color/color.service';
+import { RentalService } from 'src/app/service/Rental/rental.service';
 
 @Component({
   selector: 'app-car',
@@ -30,7 +32,9 @@ export class CarComponent implements OnInit {
   constructor(private carService:CarService,
     private colorService:ColorService,
     private activatedRoute:ActivatedRoute,
-    private brandService:BrandService 
+    private brandService:BrandService ,
+    private rentalService:RentalService,
+    private authService:AuthService
     ) { }
 
 

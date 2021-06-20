@@ -1,15 +1,12 @@
 
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import {ToastrModule} from "ngx-toastr";
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-// import { GecoDialogModule } from 'angular-dynamic-dialog';  
-// import {DynamicDialogModule} from 'primeng/dynamicdialog'; 
-// import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ConfirmationService } from 'primeng/api';
+// import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +33,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ErrorComponent } from './components/error/error.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 
 @NgModule({
@@ -62,25 +61,24 @@ import { PaymentComponent } from './components/payment/payment.component';
     HomeComponent,
     BrandListComponent,
     AdminLayoutComponent,
-    PaymentComponent
+    PaymentComponent,
+    ErrorComponent,
+    CarListComponent
   ],
   imports: [   
     BrowserModule,
     AppRoutingModule,
-    // ConfirmDialogModule,
-    // ConfirmationService,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // DynamicDialogModule,
     BrowserAnimationsModule,
-    // GecoDialogModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true} ,ConfirmationService,DialogService],
-  bootstrap: [AppComponent]
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},DialogService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

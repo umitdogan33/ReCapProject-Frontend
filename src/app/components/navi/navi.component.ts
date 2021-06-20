@@ -30,21 +30,14 @@ export class NaviComponent implements OnInit {
   }
 
   adminControl() {
-    this.userService.getByEmail(this.localStorageService.Get("email")).subscribe((response) => {
-      this.userService.getClaim(response.data.id).subscribe((response) => {
-        for (let i = 0; i < response.data.length; i++) {
-          if (
-            response.data[i].name == 'admin'
-          ) {
-            this.dataLoaded = true;
-            return true;
-          }
-        }
-
-        return false;
-      });
-    });
+    if(this.authService.getCurrentRoles()=="admin"){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
+
 
   checkToLogin(){
     if(this.authService.isAuthencation()){
@@ -77,4 +70,8 @@ export class NaviComponent implements OnInit {
       })
     }
   }
+
+  
+
+  
 }

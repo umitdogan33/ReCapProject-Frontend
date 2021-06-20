@@ -45,10 +45,11 @@ export class CarUpdateComponent implements OnInit {
       
       if(params["id"]){
         this.getCarDetailsByCarId(params["id"])
-        this.createCarForm();
+        
         this.getBrands();
         this.getColor();
       }
+      this.createCarForm();
     })
   }
 

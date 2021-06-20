@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="carId != null && customers != null && car != null">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -6,19 +6,18 @@
         </div>
         <div class="card-body">
           <form [formGroup]="rentalAddForm">
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="carId">Araç Id</label>
               <div class="form-group">
                 <input
                   type="text"
                   id="carId"
                   formControlName="carId"
-                  placeholder="{{car.carId}}"
                   class="form-control"
                   readonly
                 />
               </div>
-            </div>
+            </div> -->
   
             <div class="mb-3">
               <div class="form-floating mb-3">

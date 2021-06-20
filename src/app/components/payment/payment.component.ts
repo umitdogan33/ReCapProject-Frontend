@@ -10,8 +10,6 @@ import { RentalService } from 'src/app/service/Rental/rental.service';
 import { CustomerCreditCardService } from 'src/app/service/customer-credit-card-service.service';
 import { UserService } from 'src/app/service/user.service';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
-import { ConfirmationService } from 'primeng/api';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-payment',
