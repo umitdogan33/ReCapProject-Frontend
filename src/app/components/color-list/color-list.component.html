@@ -1,5 +1,9 @@
+<br>
+<div class="mb-3">
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filtertext" placeholder="renk ismi giriniz">
+</div>
 <p-table #dt [rows]="6" [paginator]="true" [rowHover]="true" dataKey="id" [showCurrentPageReport]="true"
-  [value]="colors">
+  [value]="colors|filterpipeColor:filterText">
   <ng-template pTemplate="header">
     <tr>
       <th id="first">
@@ -29,11 +33,6 @@
       </td>
 
     </tr>
-  </ng-template>
-  <ng-template pTemplate="summary">
-    <div class="p-d-flex p-ai-center p-jc-between">
-      Toplamda {{colors ? colors.length : 0 }} renk var.
-    </div>
   </ng-template>
 </p-table>
 <app-color-update [colorForUpdate]=selectedColor></app-color-update>

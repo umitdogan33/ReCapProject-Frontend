@@ -13,7 +13,7 @@ import { ColorAddComponent } from '../color-add/color-add.component';
   styleUrls: ['./color-list.component.css']
 })
 export class ColorListComponent implements OnInit {
-
+filterText=""
   colors:Color[]
  color:Color
  isAuthenticated :boolean
