@@ -21,10 +21,10 @@
       <td> </td>
       <td>
         <button id="update" *ngIf="checkToLogin()" (click)="setSelectedColor(color)" pButton pRipple icon="pi pi-pencil"
-         class="p-button-rounded p-button-success" data-bs-toggle="modal"
+         class="p-button-rounded p-button-warning" data-bs-toggle="modal"
           data-bs-target="#exampleModal"></button>
 
-        <button *ngIf="checkToLogin()" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+        <button *ngIf="checkToLogin()" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
           (click)="deleteColor(color)"></button>
       </td>
 
