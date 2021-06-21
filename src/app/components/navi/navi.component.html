@@ -45,7 +45,11 @@
 
         <div class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><a routerLink="/profil/update" class="dropdown-item">Profil düzenle</a></li>
-          <li *ngIf="adminControl()==true"><a routerLink="cars/add" class="dropdown-item">Araba ekle</a></li>
+          <li *ngIf="adminControl()==true"><a routerLink="admin/car/list" class="dropdown-item">Arabalar</a></li>
+          <li *ngIf="adminControl()==true"><a routerLink="admin/color/list" class="dropdown-item">Renkler</a></li>
+          <li *ngIf="adminControl()==true"><a routerLink="cars/add" class="dropdown-item">Markalar</a></li>
+          <li *ngIf="adminControl()==true"><a routerLink="cars/add" class="dropdown-item">Kiralamalar</a></li>
+
           <li><a class="dropdown-item disabled">Ayarlar</a></li>
           <li><hr class="dropdown-divider" /></li>
           <a (click)="logOut()" class="dropdown-item">Çıkış yap</a>

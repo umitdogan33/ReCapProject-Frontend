@@ -7,6 +7,7 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { CarComponent } from './components/car/car.component';
 import { CardetailsComponent } from './components/cardetails/cardetails.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent,canActivate:[LoginDisableGuard]},
   {path: "admin", component:AdminLayoutComponent, canActivate:[LoginGuard], children:[
       {path:"color/add",component:ColorAddComponent,},
+      {path:"color/list",component:ColorListComponent,},
       {path:"car/list",component:CarListComponent,}
   ]},
   { path: '**', component: ErrorComponent }

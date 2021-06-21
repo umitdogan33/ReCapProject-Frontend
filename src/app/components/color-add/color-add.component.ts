@@ -34,7 +34,7 @@ export class ColorAddComponent implements OnInit {
   this.colorService.AddColor(colormodel).subscribe(response=> {
     console.log(response)
     this.toastrService.success(response.message,"başarılı")
-    this.router.navigate(["/cars"]).then(c=>window.location.reload())
+    this.router.navigate(["/admin/color/list"]).then(c=>window.location.reload())
   },responseError=>{
     console.log(responseError);
     

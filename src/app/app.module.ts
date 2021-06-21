@@ -6,7 +6,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import {ToastrModule} from "ngx-toastr";
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
-// import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
+import { TableModule } from 'primeng/table';
+import { SplitButtonModule } from 'primeng/splitbutton';  
+import { CardModule } from 'primeng/card';
+import { ConfirmDialogModule } from 'primeng/confirmdialog'
+import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +41,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { PaymentComponent } from './components/payment/payment.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 
 
 @NgModule({
@@ -63,10 +71,18 @@ import { CarListComponent } from './components/car-list/car-list.component';
     AdminLayoutComponent,
     PaymentComponent,
     ErrorComponent,
-    CarListComponent
+    CarListComponent,
+    ColorListComponent,
+    ColorUpdateComponent
   ],
   imports: [   
+    MenuModule,
+    ConfirmDialogModule,
+     SplitButtonModule,
+    ButtonModule,
     BrowserModule,
+    TableModule,
+    CardModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -77,7 +93,7 @@ import { CarListComponent } from './components/car-list/car-list.component';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},DialogService],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},DialogService,ConfirmationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

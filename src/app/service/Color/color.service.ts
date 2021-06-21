@@ -24,4 +24,13 @@ AddColor(color:Color):Observable<ResponseModel>{
   let newpath  = this.apiUrl+"Add"
   return this.httpClient.post<ResponseModel>(newpath,color)
 }
+
+Delete(color:Color):Observable<ResponseModel>{
+  let newPath = this.apiUrl+"Delete"
+  return this.httpClient.post<ResponseModel>(newPath,color);
+}
+
+Update(color:Color):Observable<ResponseModel>{
+  let newPath = this.apiUrl+"Update"
+  return this.httpClient.post<ResponseModel>(newPath,color);}
 }

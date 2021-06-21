@@ -1,9 +1,10 @@
 <!-- <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div> -->
+  <br>
   
-  <table  class="table table-success table-striped table-hover">
-    <thead class="table-dark">
+  <table  class="table">
+    <thead>
       <tr>
        
         <th >Brand Name</th>
@@ -14,7 +15,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of carDto">
+      <tr *ngFor="let car of carDto" > 
+        
         <th>{{ car.brandName }}</th>
         <th >{{ car.modelYear }}</th>
         <th >{{ car.colorName }}</th>
