@@ -43,7 +43,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
-
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,8 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
     ErrorComponent,
     CarListComponent,
     ColorListComponent,
-    ColorUpdateComponent
+    ColorUpdateComponent,
+    BrandUpdateComponent
   ],
   imports: [   
     MenuModule,

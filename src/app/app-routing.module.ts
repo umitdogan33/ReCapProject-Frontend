@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
@@ -32,13 +33,14 @@ const routes: Routes = [
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"profil/update",component:ProfilUpdateComponent},
   {path:"payment",component:PaymentComponent,canActivate:[LoginGuard]},
-  {path:"brand/add",component:BrandAddComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent,canActivate:[LoginDisableGuard]},
   {path:"register",component:RegisterComponent,canActivate:[LoginDisableGuard]},
   {path: "admin", component:AdminLayoutComponent, canActivate:[LoginGuard], children:[
-      {path:"color/add",component:ColorAddComponent,},
-      {path:"color/list",component:ColorListComponent,},
-      {path:"car/list",component:CarListComponent,}
+      {path:"color/add",component:ColorAddComponent},
+      {path:"brand/add",component:BrandAddComponent},
+      {path:"color/list",component:ColorListComponent},
+      {path:"brand/list",component:BrandListComponent},
+      {path:"car/list",component:CarListComponent}
   ]},
   { path: '**', component: ErrorComponent }
 

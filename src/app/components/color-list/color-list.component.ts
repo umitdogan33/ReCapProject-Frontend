@@ -14,7 +14,7 @@ import { ColorAddComponent } from '../color-add/color-add.component';
 })
 export class ColorListComponent implements OnInit {
 filterText=""
-  colors:Color[]
+colors:Color[]
  color:Color
  isAuthenticated :boolean
  selectedColor:Color=null

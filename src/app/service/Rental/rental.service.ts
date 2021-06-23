@@ -22,4 +22,18 @@ GetRentalDetails():Observable<ListResponseModel<RentalDetails>>{
 add(rental:Rental):Observable<ResponseModel>{
   let newPath = this.apiUrl+"Add"
   return this.httpClient.post<ResponseModel>(newPath,rental)
-}}
+}
+
+delete(rental:Rental):Observable<ResponseModel>{
+  let newPath = this.apiUrl+"Delete"
+  return this.httpClient.post<ResponseModel>(newPath,rental)
+}
+
+
+update(rental:Rental):Observable<ResponseModel>{
+  let newPath = this.apiUrl+"Update"
+  return this.httpClient.post<ResponseModel>(newPath,rental)
+}
+
+
+}

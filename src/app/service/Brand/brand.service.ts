@@ -27,4 +27,9 @@ Delete(brand:Brand):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(this.apiUrl+"Delete",brand);
 }
 
+
+Update(brand:Brand){
+ let newPath = this.apiUrl+"Update";
+  return this.httpClient.post<ResponseModel>(newPath,brand);
+}
 }
