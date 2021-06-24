@@ -12,7 +12,7 @@ import { LocalStorageService } from 'src/app/service/local-storage.service';
 })
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
-  siteKey:string="6LfN11QbAAAAAPBcFahhHsI_fNGT8JO9kZWU24xJ"
+  siteKey:string=""
   constructor(private formBuilder:FormBuilder,private authService:AuthService,private toastrService:ToastrService,private localStorageService:LocalStorageService,private router:Router) { }
 
   ngOnInit(): void {
