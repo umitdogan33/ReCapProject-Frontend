@@ -1,17 +1,17 @@
-
-import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
-import {ToastrModule} from "ngx-toastr";
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
-import { SplitButtonModule } from 'primeng/splitbutton';  
+import { SplitButtonModule } from 'primeng/splitbutton';
 import { CardModule } from 'primeng/card';
-import { ConfirmDialogModule } from 'primeng/confirmdialog'
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -76,13 +76,14 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ColorListComponent,
     ColorUpdateComponent,
     BrandUpdateComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
-  imports: [   
+  imports: [
     MenuModule,
     ConfirmDialogModule,
-     SplitButtonModule,
+    SplitButtonModule,
     ButtonModule,
+    NgxCaptchaModule,
     BrowserModule,
     TableModule,
     CardModule,
@@ -93,11 +94,15 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      positionClass:"toast-bottom-right"
-    })
+      positionClass: 'toast-bottom-right',
+    }),
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},DialogService,ConfirmationService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    DialogService,
+    ConfirmationService,
+  ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
