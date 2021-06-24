@@ -44,6 +44,7 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
     CarListComponent,
     ColorListComponent,
     ColorUpdateComponent,
-    BrandUpdateComponent
+    BrandUpdateComponent,
+    ResetPasswordComponent
   ],
   imports: [   
     MenuModule,
